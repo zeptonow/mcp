@@ -1,0 +1,15 @@
+name: Sonar Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Sonar-Analysis:
+    uses: zeptonow/workflow-hub/.github/workflows/sonar-callable-workflow.yml@main
+    secrets: inherit
