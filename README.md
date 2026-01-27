@@ -19,19 +19,58 @@ This connector is intended for Zepto customers located in India who want the con
 
 ## Installation
 
-To add the Zepto MCP to a MCP client that supports Streamable HTTP MCP servers, register the following endpoint:
-`mcp.zepto.com/mcp`
+The Zepto MCP uses OAuth authentication to securely connect to your Zepto account. After adding the server using any of the methods below, you'll be prompted to authenticate with your Indian mobile number on first use.
+
+### Method 1: JSON-based Configuration
+
+For MCP clients that support manual configuration (Claude Desktop, Cline, etc.), add the following to your MCP settings file:
 
 ```json
 {
   "mcpServers": {
     "zepto": {
       "type": "http",
-      "url": "https://mcp.zepto.com/mcp",
+      "url": "https://mcp.zepto.co.in/mcp"
     }
   }
 }
 ```
+
+**Configuration file locations:**
+- **macOS**: `~/claude.json`
+
+After saving the configuration, restart your MCP client.
+
+### Method 2: Claude Code CLI
+
+If you're using Claude Code, you can add the Zepto MCP with a single command:
+
+```bash
+claude mcp add --transport http --scope user zepto https://mcp.zepto.co.in/mcp
+```
+
+Follow the prompts to complete the setup. The server will be automatically configured and ready to use.
+
+### Method 3: ChatGPT Desktop (Developer Mode)
+
+To use the Zepto MCP with ChatGPT Desktop:
+
+1. Enable Developer Mode in ChatGPT settings
+2. Navigate to the MCP settings section
+3. Add a new MCP server with the following details:
+   - **Name**: Zepto
+   - **URL**: `https://mcp.zepto.co.in/mcp`
+4. Save the configuration
+5. When you first use Zepto tools, you'll be prompted to authenticate with OAuth
+
+### Authentication
+
+On first use, the MCP will initiate an OAuth flow to authenticate with your Zepto account:
+1. You'll receive a prompt to authenticate
+2. Enter your Indian mobile number
+3. Complete the OTP verification
+4. Your session will be securely stored for future use
+
 Once configured, the MCP will automatically load the Zepto tools and make them available for conversational use.
 
 ## Issues
