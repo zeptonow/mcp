@@ -30,7 +30,7 @@ For MCP clients that support manual configuration (Claude Desktop, Cline, etc.),
   "mcpServers": {
     "zepto": {
       "type": "http",
-      "url": "https://mcp.zepto.com/mcp"
+      "url": "https://mcp.zepto.co.in/mcp"
     }
   }
 }
@@ -46,7 +46,7 @@ After saving the configuration, restart your MCP client.
 If you're using Claude Code, you can add the Zepto MCP with a single command:
 
 ```bash
-claude mcp add http https://mcp.zepto.com/mcp
+claude mcp add --transport http --scope user zepto https://mcp.zepto.co.in/mcp
 ```
 
 Follow the prompts to complete the setup. The server will be automatically configured and ready to use.
@@ -59,7 +59,7 @@ To use the Zepto MCP with ChatGPT Desktop:
 2. Navigate to the MCP settings section
 3. Add a new MCP server with the following details:
    - **Name**: Zepto
-   - **URL**: `https://mcp.zepto.com/mcp`
+   - **URL**: `https://mcp.zepto.co.in/mcp`
 4. Save the configuration
 5. When you first use Zepto tools, you'll be prompted to authenticate with OAuth
 
