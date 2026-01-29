@@ -1,78 +1,152 @@
-# Zepto MCP 
+# Zepto MCP
 
-The Zepto MCP allows Claude and other MCP clients to interact directly with Zepto’s quick-commerce platform. It brings grocery search, cart management, and ordering into a natural conversational workflow for users within India who have an active Indian mobile number.
+The Zepto MCP allows MCP-compatible clients (such as Claude Desktop and
+Claude Code) to interact directly with Zepto's quick-commerce platform.
+It enables grocery search, cart management, order placement, and order
+history access through natural language conversations.
+
+This integration is intended for Zepto customers in India with an active
+Indian mobile number.
+
+------------------------------------------------------------------------
 
 ## Who is it for?
 
-This connector is intended for Zepto customers located in India who want the convenience of Zepto’s shopping experience inside any Claude client that supports the Model Context Protocol.
+The Zepto MCP is designed for end users who want the convenience of
+Zepto's shopping experience inside conversational AI clients. While
+early adopters are likely to be developers and power users, this is a
+**consumer-facing integration** that works with real Zepto accounts and
+real orders.
+
+------------------------------------------------------------------------
 
 ## Tools Available
 
-- **Search Products**  
-  Allows Claude to query Zepto’s catalog for real-time product listings based on user requests.
+### Search Products
 
-- **Cart Management**  
-  Supports adding, updating, and removing items from the user’s Zepto cart.
+Search Zepto's live product catalog using natural language queries.
+Results include real-time product availability, pricing, and relevant
+details.
 
-- **Order Placement**  
-  Enables placing orders and retrieving order details through conversational prompts.
+### Cart Management
+
+Manage your Zepto cart conversationally: - Add items to the cart\
+- Update quantities
+- Remove items
+
+The cart stays in sync with your Zepto account.
+
+### Order Placement
+
+Place Zepto orders directly from the MCP.
+
+**Notes:** - Only **Cash on Delivery (COD)** is supported at this
+time. - Orders placed through the MCP are real Zepto orders and follow
+the same fulfillment flow as the Zepto app or website.
+
+### Order History
+
+Retrieve your past Zepto orders, including: - Order status (completed,
+cancelled, failed, etc.) - Ordered items - Prices and order details
+
+This can be used to review previous purchases or understand order
+outcomes.
+
+------------------------------------------------------------------------
 
 ## Installation
 
-The Zepto MCP uses OAuth authentication to securely connect to your Zepto account. After adding the server using any of the methods below, you'll be prompted to authenticate with your Indian mobile number on first use.
+The Zepto MCP uses OAuth authentication to securely connect to your
+Zepto account. Setup differs slightly by client.
 
-### Method 1: JSON-based Configuration
+------------------------------------------------------------------------
 
-For MCP clients that support manual configuration (Claude Desktop, Cline, etc.), add the following to your MCP settings file:
+### Method 1: Claude Desktop
+
+Claude Desktop provides a **Developer Settings** section that opens the
+MCP configuration file directly. Use that interface to add the Zepto
+MCP.
+
+A working configuration looks like this:
 
 ```json
-{
-  "mcpServers": {
-    "zepto": {
-      "type": "http",
-      "url": "https://mcp.zepto.co.in/mcp"
+{ 
+    "mcpServers": { 
+        "zepto": {
+             "command": "npx", 
+             "args": [ "mcp-remote", "https://mcp.zepto.co.in/mcp" ] 
+        }
     }
-  }
 }
 ```
 
-**Configuration file locations:**
-- **macOS**: `~/claude.json`
+After saving the configuration, restart Claude Desktop. The Zepto MCP
+will then be available for use.
 
-After saving the configuration, restart your MCP client.
+------------------------------------------------------------------------
 
 ### Method 2: Claude Code CLI
 
-If you're using Claude Code, you can add the Zepto MCP with a single command:
+If you're using Claude Code, you can add the Zepto MCP with a single
+command:
 
 ```bash
-claude mcp add --transport http --scope user zepto https://mcp.zepto.co.in/mcp
+claude mcp add --transport http zepto https://mcp.zepto.co.in/mcp
 ```
 
-Follow the prompts to complete the setup. The server will be automatically configured and ready to use.
+Follow the prompts to complete setup. Once added, Zepto tools will be
+available in your Claude Code sessions.
 
-### Method 3: ChatGPT Desktop (Developer Mode)
+------------------------------------------------------------------------
 
-To use the Zepto MCP with ChatGPT Desktop:
+### Method 3: ChatGPT (Status)
 
-1. Enable Developer Mode in ChatGPT settings
-2. Navigate to the MCP settings section
-3. Add a new MCP server with the following details:
-   - **Name**: Zepto
-   - **URL**: `https://mcp.zepto.co.in/mcp`
-4. Save the configuration
-5. When you first use Zepto tools, you'll be prompted to authenticate with OAuth
+Zepto support for ChatGPT is implemented as an app and is currently **in
+beta**, pending approval from OpenAI. It is not yet available for
+general use.
 
-### Authentication
+Once enabled, the ChatGPT experience will allow users to: - Search for
+groceries - Manage their Zepto cart - Place orders - View order history
 
-On first use, the MCP will initiate an OAuth flow to authenticate with your Zepto account:
-1. You'll receive a prompt to authenticate
-2. Enter your Indian mobile number
-3. Complete the OTP verification
-4. Your session will be securely stored for future use
+All through natural conversational prompts, similar to other supported
+MCP clients.
 
-Once configured, the MCP will automatically load the Zepto tools and make them available for conversational use.
+------------------------------------------------------------------------
 
-## Issues
+## Authentication
 
-If you encounter any problems, have feature requests, or want to report bugs, please raise an issue in this repository’s GitHub Issues section.
+On first use, the MCP initiates an OAuth flow:
+
+1.  You are redirected to a browser page
+2.  Enter your Indian mobile number
+3.  Verify using an OTP
+4.  You are redirected back to the MCP client
+
+After authentication, the MCP can securely access your Zepto account.
+Authentication can be cleared directly from the client if needed.
+
+------------------------------------------------------------------------
+
+## Important Notes
+
+-   This integration is **not a sandbox or demo environment**.
+-   Any order placed through the Zepto MCP will be processed as a real
+    Zepto order.
+-   Payments are **Cash on Delivery only** at this time.
+
+------------------------------------------------------------------------
+
+## Privacy
+
+This MCP does not persist or store conversation data.
+
+The MCP only accesses data required to perform the requested actions
+(such as searching products, managing carts, placing orders, or
+retrieving order history) for the authenticated user.
+
+------------------------------------------------------------------------
+
+## Issues & Feedback
+
+If you encounter issues, want to report bugs, or have feature requests,
+please use the GitHub Issues section of this repository.
