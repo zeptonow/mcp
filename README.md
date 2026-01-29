@@ -61,11 +61,14 @@ Zepto account. Setup differs slightly by client.
 
 ------------------------------------------------------------------------
 
-### Method 1: Claude Desktop
+### Method 1: JSON Config (Claude Desktop, Cursor, VSCode etc.)
 
 Claude Desktop provides a **Developer Settings** section that opens the
 MCP configuration file directly. Use that interface to add the Zepto
 MCP.
+
+For Cursor, find the 'Tools & MCP' section inside Cursor settings, which
+will let you edit the config.
 
 A working configuration looks like this:
 
@@ -80,7 +83,7 @@ A working configuration looks like this:
 }
 ```
 
-After saving the configuration, restart Claude Desktop. The Zepto MCP
+After saving the configuration, restart your client. The Zepto MCP
 will then be available for use.
 
 ------------------------------------------------------------------------
