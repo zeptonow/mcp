@@ -94,7 +94,7 @@ If you're using Claude Code, you can add the Zepto MCP with a single
 command:
 
 ```bash
-claude mcp add --transport http zepto https://mcp.zepto.co.in/mcp
+claude mcp add --transport http --scope user zepto https://mcp.zepto.co.in/mcp
 ```
 
 Follow the prompts to complete setup. Once added, Zepto tools will be
