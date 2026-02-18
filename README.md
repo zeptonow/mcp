@@ -102,7 +102,7 @@ available in your Claude Code sessions.
 
 ------------------------------------------------------------------------
 
-### Method 3: ChatGPT (Status)
+### Method 3: ChatGPT
 
 Zepto support for ChatGPT is implemented as an app and is currently **in
 beta**, pending approval from OpenAI. It is not yet available for
@@ -110,9 +110,17 @@ general use.
 
 Once enabled, the ChatGPT experience will allow users to: - Search for
 groceries - Manage their Zepto cart - Place orders - View order history
+through a speciaised ChatGPT UI.
 
-All through natural conversational prompts, similar to other supported
-MCP clients.
+**Steps to integrate**
+1. Settings > Apps > Advanced settings > Enable Developer Mode
+2. Create App "Zepto" with url `https://mcp.zepto.co.in/mcp`
+3. Wait for OAuth to pop up and enter credentials
+4. Post authentication, Add @zepto in your messages to start using
+
+**Notes**
+1. Enable "Local Network Access" to allow loading widgets properly
+2. ChatGPT's MCP experience is still maturing, there might be bugs post authentication and while loading tools
 
 ------------------------------------------------------------------------
 
