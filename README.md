@@ -147,7 +147,7 @@ The following redirect URIs are whitelisted for MCP authentication:
 -   `http://127.0.0.1`
 -   `http://127.0.0.1/callback`
 
-Contact us if you need additional URIs whitelisted.
+Please raise an issue you need additional URIs whitelisted.
 
 ------------------------------------------------------------------------
 
@@ -186,7 +186,7 @@ your cart, and places the order. Great for quick everyday purchases.
 
 ### 2. Reorder From History
 
-> "What did I order last time? Reorder the same items."
+> "Reorder my last order"
 
 The AI retrieves your most recent order, lists out the items, and adds
 them back to your cart so you can place the order again with a single
@@ -215,8 +215,7 @@ handwritten lists, or even a photo of a dish you want to recreate.
 ### 5. Occasion-Based Shopping
 
 > "I'm hosting a Diwali party for 15 people this weekend. I'll need
-> sweets, dry fruits, snacks, drinks, and some basic decorations if
-> available. Put together a cart for me."
+> sweets, dry fruits, snacks, drinks, and some decorations. Put together a cart for me."
 
 The AI plans a shopping list based on the occasion, searches across
 categories, adds appropriate items and quantities, and presents the
