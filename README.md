@@ -40,9 +40,10 @@ The cart stays in sync with your Zepto account.
 
 Place Zepto orders directly from the MCP.
 
-**Notes:** - Only **Cash on Delivery (COD)** is supported at this
-time. - Orders placed through the MCP are real Zepto orders and follow
-the same fulfillment flow as the Zepto app or website.
+**Notes:** - Multiple payment methods are supported (see
+[Payment Methods](#payment-methods) below). - Orders placed through the
+MCP are real Zepto orders and follow the same fulfillment flow as the
+Zepto app or website.
 
 ### Order History
 
@@ -108,6 +109,10 @@ Zepto support for ChatGPT is implemented as an app and is currently **in
 beta**, pending approval from OpenAI. It is not yet available for
 general use.
 
+**Note:** The ChatGPT integration is still in early development and may
+exhibit unexpected behavior or instability. We are actively working on
+improving reliability.
+
 Once enabled, the ChatGPT experience will allow users to: - Search for
 groceries - Manage their Zepto cart - Place orders - View order history
 through a speciaised ChatGPT UI.
@@ -136,6 +141,94 @@ On first use, the MCP initiates an OAuth flow:
 After authentication, the MCP can securely access your Zepto account.
 Authentication can be cleared directly from the client if needed.
 
+### Allowed Redirect URIs
+
+The following redirect URIs are whitelisted for MCP authentication:
+
+-   `claude://claude.ai/settings/connectors`
+-   `https://claude.ai/api/mcp/auth_callback`
+-   `https://insiders.vscode.dev/redirect`
+-   `https://oauth.pstmn.io/v1/callback`
+-   `https://vscode.dev/redirect`
+-   `http://localhost`
+-   `http://localhost/callback`
+-   `http://127.0.0.1`
+-   `http://127.0.0.1/callback`
+
+Please raise an issue you need additional URIs whitelisted.
+
+------------------------------------------------------------------------
+
+## Payment Methods
+
+The Zepto MCP supports multiple payment options:
+
+-   **Cash on Delivery (COD)** — Pay when your order arrives.
+-   **UPI** — Pay via any UPI app (GPay, PhonePe, etc.) through an
+    in-conversation payment link.
+-   **Cards** — Credit and debit card payments via a secure checkout
+    flow.
+-   **Zepto Cash (Wallet)** — Use your Zepto wallet balance to pay for
+    orders.
+-   **UPI Reserve Pay** — Reserve-and-pay flow powered by NPCI and
+    Razorpay. The amount is reserved upfront via UPI and charged upon
+    order fulfillment.
+
+You can ask the AI to show available payment methods for your order, or
+specify your preferred method directly — e.g. *"Place my order using
+UPI"* or *"Pay with Zepto Cash"*.
+
+------------------------------------------------------------------------
+
+## Example Workflows
+
+Here are some things you can try once the Zepto MCP is set up. Just type
+these as natural language prompts in your AI client.
+
+### 1. Quick Everyday Order
+
+> "Order 1L Amul Toned Milk, a dozen eggs, and a loaf of bread."
+
+A straightforward flow — the AI searches for the items, adds them to
+your cart, and places the order. Great for quick everyday purchases.
+
+### 2. Reorder From History
+
+> "Reorder my last order"
+
+The AI retrieves your most recent order, lists out the items, and adds
+them back to your cart so you can place the order again with a single
+confirmation.
+
+### 3. Recipe-Based Shopping
+
+> "I want to make paneer butter masala tonight for 4 people. Figure out
+> what ingredients I need and order them from Zepto."
+
+The AI generates a recipe ingredient list, searches for each item on
+Zepto, picks the right quantities, adds everything to your cart, and
+gives you a total — turning a dinner idea into a ready-to-place order.
+
+### 4. Order From a Photo
+
+> _\[Attach a photo of a recipe card, a screenshot of a dish, or a
+> fridge with missing items\]_
+>
+> "Here's a recipe I found — order everything I'd need to make this."
+
+The AI reads the image, identifies the ingredients or items, searches
+for them on Zepto, and builds your cart. Works with recipe screenshots,
+handwritten lists, or even a photo of a dish you want to recreate.
+
+### 5. Occasion-Based Shopping
+
+> "I'm hosting a Diwali party for 15 people this weekend. I'll need
+> sweets, dry fruits, snacks, drinks, and some decorations. Put together a cart for me."
+
+The AI plans a shopping list based on the occasion, searches across
+categories, adds appropriate items and quantities, and presents the
+full cart for your review — handling the thinking so you don't have to.
+
 ------------------------------------------------------------------------
 
 ## Important Notes
@@ -143,7 +236,8 @@ Authentication can be cleared directly from the client if needed.
 -   This integration is **not a sandbox or demo environment**.
 -   Any order placed through the Zepto MCP will be processed as a real
     Zepto order.
--   Payments are **Cash on Delivery only** at this time.
+-   Multiple payment methods are supported — see
+    [Payment Methods](#payment-methods) for details.
 
 ------------------------------------------------------------------------
 
