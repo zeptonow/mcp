@@ -1,4 +1,4 @@
-# Zepto MCP
+# 🚀 Zepto MCP
 
 The Zepto MCP allows MCP-compatible clients (such as Claude Desktop and
 Claude Code) to interact directly with Zepto's quick-commerce platform.
@@ -13,7 +13,7 @@ Indian mobile number.
 
 ------------------------------------------------------------------------
 
-## Who is it for?
+## 🧑‍💻 Who is it for?
 
 The Zepto MCP is designed for end users who want the convenience of
 Zepto's shopping experience inside conversational AI clients. While
@@ -23,15 +23,15 @@ real orders.
 
 ------------------------------------------------------------------------
 
-## Tools Available
+## 🛠️ Tools Available
 
-### Search Products
+### 🔍 Search Products
 
 Search Zepto's live product catalog using natural language queries.
 Results include real-time product availability, pricing, and relevant
 details.
 
-### Cart Management
+### 🛒 Cart Management
 
 Manage your Zepto cart conversationally: - Add items to the cart\
 - Update quantities
@@ -39,7 +39,7 @@ Manage your Zepto cart conversationally: - Add items to the cart\
 
 The cart stays in sync with your Zepto account.
 
-### Order Placement
+### 📦 Order Placement
 
 Place Zepto orders directly from the MCP.
 
@@ -48,7 +48,7 @@ Place Zepto orders directly from the MCP.
 MCP are real Zepto orders and follow the same fulfillment flow as the
 Zepto app or website.
 
-### Order History
+### 📜 Order History
 
 Retrieve your past Zepto orders, including: - Order status (completed,
 cancelled, failed, etc.) - Ordered items - Prices and order details
@@ -58,7 +58,7 @@ outcomes.
 
 ------------------------------------------------------------------------
 
-## Installation
+## ⚙️ Installation
 
 The Zepto MCP uses OAuth authentication to securely connect to your
 Zepto account. Setup differs slightly by client.
@@ -132,7 +132,7 @@ through a speciaised ChatGPT UI.
 
 ------------------------------------------------------------------------
 
-## Authentication
+## 🔐 Authentication
 
 On first use, the MCP initiates an OAuth flow:
 
@@ -144,7 +144,7 @@ On first use, the MCP initiates an OAuth flow:
 After authentication, the MCP can securely access your Zepto account.
 Authentication can be cleared directly from the client if needed.
 
-### Allowed Redirect URIs
+### 🔗 Allowed Redirect URIs
 
 The following redirect URIs are whitelisted for MCP authentication:
 
@@ -162,18 +162,18 @@ Please raise an issue you need additional URIs whitelisted.
 
 ------------------------------------------------------------------------
 
-## Payment Methods
+## 💳 Payment Methods
 
 The Zepto MCP supports multiple payment options:
 
--   **Cash on Delivery (COD)** — Pay when your order arrives.
--   **UPI** — Pay via any UPI app (GPay, PhonePe, etc.) through an
+-   💵 **Cash on Delivery (COD)** — Pay when your order arrives.
+-   📱 **UPI** — Pay via any UPI app (GPay, PhonePe, etc.) through an
     in-conversation payment link.
--   **Cards** — Credit and debit card payments via a secure checkout
+-   💳 **Cards** — Credit and debit card payments via a secure checkout
     flow.
--   **Zepto Cash (Wallet)** — Use your Zepto wallet balance to pay for
+-   👛 **Zepto Cash (Wallet)** — Use your Zepto wallet balance to pay for
     orders.
--   **UPI Reserve Pay** — Reserve-and-pay flow powered by NPCI and
+-   🔒 **UPI Reserve Pay** — Reserve-and-pay flow powered by NPCI and
     Razorpay. The amount is reserved upfront via UPI and charged upon
     order fulfillment.
 
@@ -183,19 +183,19 @@ UPI"* or *"Pay with Zepto Cash"*.
 
 ------------------------------------------------------------------------
 
-## Example Workflows
+## 💡 Example Workflows
 
 Here are some things you can try once the Zepto MCP is set up. Just type
 these as natural language prompts in your AI client.
 
-### 1. Quick Everyday Order
+### 1. 🛍️ Quick Everyday Order
 
 > "Order 1L Amul Toned Milk, a dozen eggs, and a loaf of bread."
 
 A straightforward flow — the AI searches for the items, adds them to
 your cart, and places the order. Great for quick everyday purchases.
 
-### 2. Reorder From History
+### 2. 🔄 Reorder From History
 
 > "Reorder my last order"
 
@@ -203,7 +203,7 @@ The AI retrieves your most recent order, lists out the items, and adds
 them back to your cart so you can place the order again with a single
 confirmation.
 
-### 3. Recipe-Based Shopping
+### 3. 🍳 Recipe-Based Shopping
 
 > "I want to make paneer butter masala tonight for 4 people. Figure out
 > what ingredients I need and order them from Zepto."
@@ -212,7 +212,7 @@ The AI generates a recipe ingredient list, searches for each item on
 Zepto, picks the right quantities, adds everything to your cart, and
 gives you a total — turning a dinner idea into a ready-to-place order.
 
-### 4. Order From a Photo
+### 4. 📸 Order From a Photo
 
 > _\[Attach a photo of a recipe card, a screenshot of a dish, or a
 > fridge with missing items\]_
@@ -223,7 +223,7 @@ The AI reads the image, identifies the ingredients or items, searches
 for them on Zepto, and builds your cart. Works with recipe screenshots,
 handwritten lists, or even a photo of a dish you want to recreate.
 
-### 5. Occasion-Based Shopping
+### 5. 🎉 Occasion-Based Shopping
 
 > "I'm hosting a Diwali party for 15 people this weekend. I'll need
 > sweets, dry fruits, snacks, drinks, and some decorations. Put together a cart for me."
@@ -234,7 +234,7 @@ full cart for your review — handling the thinking so you don't have to.
 
 ------------------------------------------------------------------------
 
-## Important Notes
+## ⚠️ Important Notes
 
 -   This integration is **not a sandbox or demo environment**.
 -   Any order placed through the Zepto MCP will be processed as a real
@@ -244,7 +244,7 @@ full cart for your review — handling the thinking so you don't have to.
 
 ------------------------------------------------------------------------
 
-## Privacy
+## 🔒 Privacy
 
 This MCP does not persist or store conversation data.
 
@@ -254,7 +254,7 @@ retrieving order history) for the authenticated user.
 
 ------------------------------------------------------------------------
 
-## Issues & Feedback
+## 💬 Issues & Feedback
 
 If you encounter issues, want to report bugs, or have feature requests,
 please use the GitHub Issues section of this repository.
