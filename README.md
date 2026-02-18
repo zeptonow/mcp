@@ -2,8 +2,11 @@
 
 The Zepto MCP allows MCP-compatible clients (such as Claude Desktop and
 Claude Code) to interact directly with Zepto's quick-commerce platform.
-It enables grocery search, cart management, order placement, and order
-history access through natural language conversations.
+It enables product search, cart management, order placement, and order
+history access through natural language conversations — across
+groceries, household essentials, personal care, electronics, toys,
+stationery, and more.
+
 
 This integration is intended for Zepto customers in India with an active
 Indian mobile number.
