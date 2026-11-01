@@ -132,6 +132,42 @@ through a speciaised ChatGPT UI.
 
 ------------------------------------------------------------------------
 
+### Method 4: Codex CLI (connection currently blocked)
+
+Codex can register a remote HTTP MCP server without a local bridge. Check
+for an existing entry before adding one:
+
+```bash
+codex mcp list
+```
+
+If `zepto` is not already registered, add it once:
+
+```bash
+codex mcp add zepto --url https://mcp.zepto.co.in/mcp
+```
+
+Start authentication without automatically opening a browser:
+
+```bash
+codex mcp login zepto --no-browser
+```
+
+When an authorization URL is printed, open it manually, complete Zepto's
+phone/OTP flow, and follow the CLI instructions to complete the callback.
+Do not share OTPs, tokens, or callback URLs in public issues.
+
+**Known limitation:** As reported in [#98](https://github.com/zeptonow/mcp/issues/98),
+Codex CLI 0.166.0 returned HTTP 403 during dynamic client registration on
+1 November 2026, before an authorization URL was generated. Registration
+alone does not establish authentication or working tool access.
+
+After authentication succeeds, verify tool access with a read-only request,
+such as product search. Do not use cart changes or real orders as a
+connection test.
+
+------------------------------------------------------------------------
+
 ## 🔐 Authentication
 
 On first use, the MCP initiates an OAuth flow:
@@ -159,6 +195,36 @@ The following redirect URIs are whitelisted for MCP authentication:
 -   `http://127.0.0.1/callback`
 
 Please raise an issue you need additional URIs whitelisted.
+
+### OAuth registration failures and allowlist requests
+
+A registration error occurs before phone/OTP sign-in. A generic HTML
+HTTP 403 does not, by itself, establish that a redirect URI was rejected.
+For example, [#12](https://github.com/zeptonow/mcp/issues/12) reported that
+response and a collaborator described it as intermittent. A separate
+registration outage affecting Claude and Codex was reported fixed in
+[#38](https://github.com/zeptonow/mcp/issues/38). Those historical fixes do
+not establish the cause or resolution of a new failure.
+
+When reporting a registration failure, include:
+
+- Client name/version, operating system, and date of the failure.
+- Server URL, command used, HTTP status, and sanitized error response.
+- Whether an authorization URL was generated and which OAuth stage failed.
+- Related issue links, including [#98](https://github.com/zeptonow/mcp/issues/98)
+  for the Codex registration report.
+
+For an additional redirect allowlist request, provide the exact callback
+URI and the intended use case. Contributors have requested these details
+in [#17](https://github.com/zeptonow/mcp/issues/17) and
+[#10](https://github.com/zeptonow/mcp/issues/10). Do not guess a provider's
+callback URI or reuse another client's OAuth identity. Hosted integrations
+need their integration owner to supply the actual client/callback details;
+adding an integration's name to documentation does not grant access.
+
+Never include access tokens, refresh tokens, client secrets, OTPs, or
+callback URLs containing authorization codes in an issue. Allowlist
+changes and server-side registration fixes require maintainer action.
 
 ------------------------------------------------------------------------
 
